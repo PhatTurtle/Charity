@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Love Without Boundaries</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <th:block th:replace="~{user/style/template-css :: html}"></th:block>
+</head>
+<body>
+    <div th:replace="~{user/fragment/header.html :: nav}"></div>
+
+	<div class="hero-wrap" style="background-image: url('images/bg_6.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a th:href="@{/home}">Trang Chủ</a></span> <span>Quyên Góp</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Quyên Góp</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row">
+
+        	<div th:each="lover : ${listLover}" class="col-lg-4 d-flex mb-sm-4 ftco-animate">
+        		<div class="staff">
+        			<div class="d-flex mb-4">
+                        <div class="img" th:style="'background-image: url(' + @{/images/} + ${lover.loverImg} + ');'"></div>
+        				<div class="info ml-4">
+        					<h3><a href="teacher-single.html" th:text="${lover.loverName}"></a></h3>
+        					<span class="position">Donated Just now</span>
+        					<div class="text">
+		        				<span th:text="${lover.loverDonate}"></span>
+		        				<span th:text="${lover.loverMoney}"></span><span>VND</span>
+		        			</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+          <div class="pagination justify-content-center">
+              <ul class="pagination">
+                  <li class="page-item">
+                      <a class="page-link" th:if="${currentPage > 1}"
+                         th:href="@{'/donate/' + (${currentPage} - 1)}">&laquo;</a>
+                      <span class="page-link disabled" th:unless="${currentPage > 1}">&laquo;</span>
+                  </li>
+
+                  <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}"
+                      th:classappend="${currentPage == i} ? 'active' : ''">
+                      <a class="page-link"
+                         th:href="@{'/donate/' + ${i}}">[[${i}]]</a>
+                  </li>
+
+                  <li class="page-item">
+                      <a class="page-link" th:if="${currentPage < totalPages}"
+                         th:href="@{'/donate/' + (${currentPage} + 1)}">&raquo;</a>
+                      <span class="page-link disabled" th:unless="${currentPage < totalPages}">&raquo;</span>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </section>
+
+    <section class="ftco-section-3 img" style="background-image: url(images/bg_3.jpg);">
+    	<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row d-md-flex">
+    		<div class="col-md-6 d-flex ftco-animate">
+    			<div class="img img-2 align-self-stretch" style="background-image: url(images/bg_4.jpg);"></div>
+    		</div>
+    		<div class="col-md-6 volunteer pl-md-5 ftco-animate">
+    			<h3 class="mb-3">Be a volunteer</h3>
+    			<form action="#" class="volunter-form">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+              <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
+            </div>
+          </form>
+    		</div>    			
+    		</div>
+    	</div>
+    </section>
+
+	<div th:replace="~{user/fragment/footer.html :: footer}"></div>
+    <th:block th:replace="~{user/style/template-scr :: html}"></th:block>
+</body>
+</html>
