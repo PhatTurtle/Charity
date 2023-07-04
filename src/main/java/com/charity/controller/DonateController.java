@@ -22,11 +22,13 @@ public class DonateController {
     private LoverService loverService;
     @GetMapping("/donate/{pageNumber}")
     public String donate(Model model, @PathVariable("pageNumber")int pageNumber) {
+        String imageUrlBg = "/images/bg_6.jpg";
         Page<Lover> pageLover = loverService.getAllLoverDonate(pageNumber);
         List<Lover> listLover = pageLover.getContent();
-        model.addAttribute("currentPage",pageNumber);
-        model.addAttribute("totalPages",pageLover.getSize());
         model.addAttribute("listLover",listLover);
+        model.addAttribute("currentPage",pageNumber);
+        model.addAttribute("totalPages",pageLover.getTotalPages());
+        model.addAttribute("imageUrlBg",imageUrlBg);
         return "user/donate.html";
     }
 }

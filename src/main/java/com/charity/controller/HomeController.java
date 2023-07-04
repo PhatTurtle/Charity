@@ -19,10 +19,10 @@ public class HomeController {
     public String contact(Model model){
     	return "user/contact.html";
     }
-//    @GetMapping("/donate")
-//    public String donate(Model model){
-//    	return "user/donate.html";
-//    }
+    @GetMapping("/donate")
+    public String donate(Model model){
+    	return "user/donate.html";
+    }
     @GetMapping("/about")
     public String about(Model model){
     	return "user/about.html";
