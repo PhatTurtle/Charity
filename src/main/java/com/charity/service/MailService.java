@@ -40,7 +40,7 @@ public class MailService {
 
 		helper.setFrom("baotdgps20506@fpt.edu.vn");
 //		helper.setTo("nganvps24932@fpt.edu.vn");
-		helper.setTo("tranbao2122@gmail.com");
+		helper.setTo("nganvps24932@fpt.edu.vn");
 		helper.setSubject(subject);
 		helper.setText(content, true);
 		helper.setReplyTo("baotdgps20506@fpt.edu.vn");
