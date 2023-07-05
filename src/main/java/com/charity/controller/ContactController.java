@@ -21,11 +21,10 @@ public class ContactController {
                            RedirectAttributes ra){
         try {
             mailService1.sendEmail(name,email,subject,message);
+            model.addAttribute("message","Cảm ơn bạn đã phản hồi đến chúng tôi!");
         }catch (Exception e){
             e.printStackTrace();
-
         }
-
     return "user/contact.html";
     }
 }

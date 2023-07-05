@@ -22,7 +22,7 @@ public class DonateController {
     private LoverService loverService;
     @GetMapping("/donate/{pageNumber}")
     public String donate(Model model, @PathVariable("pageNumber")int pageNumber) {
-        String imageUrlBg = "/images/bg_6.jpg";
+        String imageUrlBg = "/images/bg_6.2.jpg";
         String logo = "/images/logo_ico.ico";
         Page<Lover> pageLover = loverService.getAllLoverDonate(pageNumber);
         List<Lover> listLover = pageLover.getContent();

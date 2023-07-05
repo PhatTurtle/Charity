@@ -4,71 +4,114 @@
     <title>Love Without Boundaries</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="/images/logo.png">
     <th:block th:replace="~{user/style/template-css :: html}"></th:block>
 
     <link rel="icon" th:href="@{${logo}}" type="image/x-icon">
 </head>
 <body>
-    <div th:replace="~{user/fragment/header.html :: nav}"></div>
+<div th:replace="~{user/fragment/header.html :: nav}"></div>
 
-	<div class="hero-wrap" th:style="'background-image: url(' + @{${imageUrlBg}} + ');'" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
+<div class="hero-wrap" th:style="'background-image: url(' + @{${imageUrlBg}} + ');'" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a th:href="@{/home}">Trang Chủ</a></span> <span>Đóng Góp</span></p>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Đóng Góp</h1>
-          </div>
+            <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a th:href="@{/home}">Trang Chủ</a></span> <span>Đóng Góp</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Đóng Góp</h1>
+            </div>
         </div>
-      </div>
     </div>
+</div>
 
 
-    <section class="ftco-section bg-light">
-      <div class="container">
-        <div class="row">
+<section class="pt-5 bg-light" style="margin-top: 100px">
+    <section class="container">
+        <div class="row row cols-3 d-flex justify-content-around">
+            <div class="col">
+                <h4 style="margin-left: 40px">Momo-Nguyễn Văn Nga</h4>
+                <div class="card" style="width: 280px; background-color: #fff; border: none">
+                    <img class="card-img-top" src="/images/QR/30k.jpg" style="width: 100%">
+                    <div class="card-body">
+                        <span>Ly trà sửa Size S</span><br>
+                        <span>30k</span>
+                    </div>
+                </div>
+            </div>
 
-        	<div th:each="lover : ${listLover}" class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
+            <div class="col">
+                <h4 style="margin-left: 40px">Momo-Nguyễn Văn Nga</h4>
+                <div class="card" style="width: 270px; background-color: #fff;border: none">
+                    <img class="card-img-top" src="/images/QR/50k.jpg" style="width: 100%">
+                    <div class="card-body">
+                        <span>Ly trà sửa Size S</span><br>
+                        <span>30k</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4 style="margin-left: 40px">Momo-Nguyễn Văn Nga</h4>
+                <div class="card" style="width: 255px; background-color: #fff;border: none">
+                    <img class="card-img-top" src="/images/QR/Bank2%20(2).jpg" style="width: 100%">
+                    <div class="card-body">
+                        <span>Ly trà sửa Size S</span><br>
+                        <span>30k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</section>
+
+<section class="ftco-section bg-light">
+    <div class="container-fluid">
+        <div class="gradient">
+            <h2 class="mx-5 ">Những Người Đã Ủng Hộ</h2>
+        </div>
+        <div class="row row-cols-3 " style="margin-left: 4%">
+            <div th:each="lover : ${listLover}" class="  mb-sm-4  ftco-animate ">
+                <div class="staff">
+                    <div class="  d-flex mb-4">
                         <div class="img" th:style="'background-image: url(' + @{/images/} + ${lover.loverImg} + ');'"></div>
-        				<div class="info ml-4 sm-4">
-        					<h3><a href="#" th:text="${lover.loverName}"></a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text w-100">
-		        				<span th:text="${lover.loverDonate}"></span> <br>
+                        <div class="info ml-4 sm-4">
+                            <h3><a href="#" th:text="${lover.loverName}"></a></h3>
+                            <span class="position">Đã Ủng Hộ</span>
+                            <div class="text w-100">
+                                <span th:text="${lover.loverDonate}"></span> <br>
                                 <span th:text="${#strings.substringBefore(lover.loverMoney/1000, '.')}"></span><span>k</span>
                             </div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-          <div class="pagination justify-content-center">
-              <ul class="pagination">
-                  <li class="page-item">
-                      <a class="page-link" th:if="${currentPage > 1}"
-                         th:href="@{/donate/{pageNumber}(pageNumber=${currentPage + 1})}">&laquo;</a>
-                      <span class="page-link disabled" th:unless="${currentPage > 1}">&laquo;</span>
-                  </li>
+        <div class="pagination justify-content-center">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" th:if="${currentPage > 1}"
+                       th:href="@{/donate/{pageNumber}(pageNumber=${currentPage + 1})}">&laquo;</a>
+                    <span class="page-link disabled" th:unless="${currentPage > 1}">&laquo;</span>
+                </li>
 
-                  <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}"
-                      th:classappend="${currentPage == i} ? 'active' : ''">
-                      <a class="page-link"
-                         th:href="@{'/donate/'+${i}}">[[${i}]]</a>
-                  </li>
+                <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}"
+                    th:classappend="${currentPage == i} ? 'active' : ''">
+                    <a class="page-link"
+                       th:href="@{'/donate/'+${i}}">[[${i}]]</a>
+                </li>
 
-                  <li class="page-item">
-                      <a class="page-link" th:if="${currentPage < totalPages}"
-                         th:href="@{/donate/{pageNumber}(pageNumber=${currentPage + 1})}">&raquo;</a>
-                      <span class="page-link disabled" th:unless="${currentPage < totalPages}">&raquo;</span>
-                  </li>
-              </ul>
-          </div>
-      </div>
-    </section>
+                <li class="page-item">
+                    <a class="page-link" th:if="${currentPage < totalPages}"
+                       th:href="@{/donate/{pageNumber}(pageNumber=${currentPage + 1})}">&raquo;</a>
+                    <span class="page-link disabled" th:unless="${currentPage < totalPages}">&raquo;</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-	<div th:replace="~{user/fragment/footer.html :: footer}"></div>
-    <th:block th:replace="~{user/style/template-scr :: html}"></th:block>
+<div th:replace="~{user/fragment/footer.html :: footer}"></div>
+<th:block th:replace="~{user/style/template-scr :: html}"></th:block>
 </body>
 </html>
