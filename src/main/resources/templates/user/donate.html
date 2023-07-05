@@ -8,6 +8,14 @@
     <th:block th:replace="~{user/style/template-css :: html}"></th:block>
 
     <link rel="icon" th:href="@{${logo}}" type="image/x-icon">
+
+<style>
+    .staff{
+        width: 420px;
+        margin-left: 20px;
+    }
+</style>
+
 </head>
 <body>
 <div th:replace="~{user/fragment/header.html :: nav}"></div>
@@ -24,51 +32,46 @@
     </div>
 </div>
 
-
-<section class="pt-5 bg-light" style="margin-top: 100px">
-    <section class="container">
-        <div class="row row cols-3 d-flex justify-content-around">
-            <div class="col">
-                <h4 style="margin-left: 40px">Momo-Nguyễn Văn Nga</h4>
-                <div class="card" style="width: 280px; background-color: #fff; border: none">
-                    <img class="card-img-top" src="/images/QR/30k.jpg" style="width: 100%">
-                    <div class="card-body">
-                        <span>Ly trà sửa Size S</span><br>
-                        <span>30k</span>
-                    </div>
+<section class="container pt-5">
+    <section class="row pt-4">
+        <section class="col-lg-8 ">
+            <h3 style="margin-left: 25%">Momo-Nguyễn Văn Nga</h3>
+            <section class="d-flex justify-content-around pt-3">
+                <div class="card" style="width: 200px;height: 300px">
+                    <img src="/images/QR/Momo2.png" alt="">
+                    <img src="/images/QR/g%20(1).png" alt="">
                 </div>
-            </div>
-
-            <div class="col">
-                <h4 style="margin-left: 40px">Momo-Nguyễn Văn Nga</h4>
-                <div class="card" style="width: 270px; background-color: #fff;border: none">
-                    <img class="card-img-top" src="/images/QR/50k.jpg" style="width: 100%">
-                    <div class="card-body">
-                        <span>Ly trà sửa Size S</span><br>
-                        <span>30k</span>
-                    </div>
+                <div class="card" style="width: 200px;height: 300px">
+                    <img src="/images/QR/Momo2.png" alt="">
+                    <img src="/images/QR/g%20(1).png" alt="">
                 </div>
-            </div>
+                <div class="card" style="width: 1px;height: 300px;background-color: black">
 
-            <div class="col">
-                <h4 style="margin-left: 40px">Banking-Nguyễn Văn Nga</h4>
-                <div class="card" style="width: 255px; background-color: #fff;border: none">
-                    <img class="card-img-top" src="/images/QR/Bank2%20(2).jpg" style="width: 100%">
-                    <div class="card-body">
-                        <span>Ly trà sửa Size S</span><br>
-                        <span>30k</span>
-                    </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
+        </section>
+
+        <section class="col-lg-4">
+            <h3 style="text-align: center">Banking-Nguyễn Văn Nga</h3>
+            <section class="d-flex justify-content-center pt-3">
+                <div class="card" style="width: 200px;height: 300px">
+                    <img src="/images/QR/Bank2%20(2).png" alt="">
+                    <img src="/images/QR/g%20(1).png" alt="">
+                </div>
+            </section>
+
+
+        </section>
     </section>
 </section>
+
+
 
 <section class="ftco-section bg-light">
     <div class="container-fluid">
         <div class="gradient">
-            <h2 class="mx-5 ">Những Người Đã Ủng Hộ</h2>
+            <h2 class="mx-5 mb-5 ">Những Người Đã Ủng Hộ</h2>
         </div>
         <div class="row row-cols-3 " style="margin-left: 4%">
             <div th:each="lover : ${listLover}" class="  mb-sm-4  ftco-animate ">
